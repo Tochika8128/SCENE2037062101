@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>
-      脚本家・東浩一が描く、あの頃の空気
+      脚本家・東浩一が描く、12年前の空気
       ——『ダイレクトメッセージ』が記録した2025年の日本 | SCENE
     </title>
     <meta
@@ -102,9 +106,21 @@
         padding: 6px 8px;
         border-radius: 10px;
       }
+      nav.topnav .material-icons {
+        display: none;
+      }
       nav.topnav a:hover {
         background: var(--card);
         text-decoration: none;
+      }
+      @media (max-width: 800px) {
+        nav.topnav a {
+          display: none;
+        }
+        nav.topnav .material-icons {
+          display: inline-block;
+          cursor: pointer;
+        }
       }
 
       /* Layout */
@@ -159,6 +175,11 @@
         line-height: 1.35;
         font-size: 30px;
         margin: 6px 0 10px;
+      }
+      @media (max-width: 800px) {
+        .title {
+          font-size: 20px;
+        }
       }
       .subtitle {
         color: var(--muted);
@@ -355,6 +376,7 @@
           <a href="#">ART</a>
           <a href="#">NEWS</a>
           <a href="#">ABOUT</a>
+          <span class="material-icons"> menu </span>
         </nav>
       </div>
     </header>
