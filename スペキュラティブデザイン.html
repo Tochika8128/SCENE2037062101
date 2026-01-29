@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      脚本家・東浩一が描く、あの頃の空気
+      ——『ダイレクトメッセージ』が記録した2025年の日本 | SCENE
+    </title>
+    <meta
+      name="description"
+      content="カルチャー誌SCENEのWeb内インタビュー記事。脚本家・東浩一が『ダイレクトメッセージ』と2025年の日本、そして現在の制作環境について語る。"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #111111;
+        --muted: #5c5c5c;
+        --line: #e7e7e7;
+        --card: #f7f7f7;
+        --accent: #0b57d0;
+        --max: 920px;
+        --radius: 14px;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        --serif:
+          ui-serif, "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP",
+          "Times New Roman", serif;
+        --sans:
+          ui-sans-serif, system-ui, -apple-system, "Hiragino Kaku Gothic ProN",
+          "Yu Gothic", "Noto Sans JP", "Segoe UI", Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--sans);
+        line-height: 1.85;
+        letter-spacing: 0.02em;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: saturate(180%) blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .header-inner {
+        max-width: calc(var(--max) + 64px);
+        margin: 0 auto;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        min-width: 160px;
+      }
+      .brand .logo {
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        font-size: 18px;
+        color: var(--fg);
+      }
+      .brand .tag {
+        color: var(--muted);
+        font-size: 12px;
+        border-left: 1px solid var(--line);
+        padding-left: 10px;
+        white-space: nowrap;
+      }
+      nav.topnav {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      nav.topnav a {
+        color: var(--fg);
+        font-size: 13px;
+        padding: 6px 8px;
+        border-radius: 10px;
+      }
+      nav.topnav a:hover {
+        background: var(--card);
+        text-decoration: none;
+      }
+
+      /* Layout */
+      .wrap {
+        max-width: calc(var(--max) + 64px);
+        margin: 0 auto;
+        padding: 28px 24px 64px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 980px) {
+        .grid {
+          grid-template-columns: minmax(0, 1fr) 280px;
+          gap: 32px;
+        }
+      }
+
+      /* Article */
+      article {
+        max-width: var(--max);
+        margin: 0;
+      }
+      .kicker {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+      }
+      .pill strong {
+        color: var(--fg);
+        font-weight: 700;
+      }
+      .title {
+        font-family: var(--serif);
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        line-height: 1.35;
+        font-size: 30px;
+        margin: 6px 0 10px;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0 0 18px;
+      }
+      .byline {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px 0 10px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+      }
+      .byline .meta {
+        color: var(--muted);
+        font-size: 12px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .byline .meta .dot::before {
+        content: "•";
+        margin: 0 8px;
+        color: var(--line);
+      }
+      .share {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-size: 12px;
+        color: var(--fg);
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: var(--card);
+      }
+
+      .lede {
+        font-size: 16px;
+        color: #222;
+        margin: 18px 0 22px;
+      }
+
+      .section {
+        margin: 22px 0;
+      }
+      .section h2 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+
+      .summary {
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+        margin-top: 32px;
+      }
+
+      /* Work intro block */
+      .work-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px 18px 16px;
+        box-shadow: var(--shadow);
+        margin: 18px 0 22px;
+      }
+      .work-card h3 {
+        margin: 0 0 8px;
+        font-family: var(--serif);
+        font-size: 18px;
+        letter-spacing: 0.02em;
+      }
+      .work-card p {
+        margin: 0;
+        color: #222;
+        font-size: 14px;
+      }
+
+      /* Interview */
+      .qa {
+        margin-top: 18px;
+      }
+      .q {
+        margin: 40px 0 10px;
+        font-weight: 800;
+        color: #111;
+        font-size: 16px;
+      }
+      .a {
+        margin: 0 0 14px;
+        color: #171717;
+        font-size: 14px;
+      }
+
+      /* Side */
+      aside {
+        border-left: 1px solid var(--line);
+        padding-left: 18px;
+      }
+      @media (max-width: 979px) {
+        aside {
+          border-left: none;
+          padding-left: 0;
+          border-top: 1px solid var(--line);
+          padding-top: 18px;
+        }
+      }
+      .side-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 16px;
+        background: #fff;
+        margin-bottom: 14px;
+      }
+      .side-card h3 {
+        margin: 0 0 10px;
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        font-weight: 900;
+        color: #111;
+      }
+      .kv {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 8px 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .kv dt {
+        font-weight: 700;
+        color: #333;
+      }
+      .kv dd {
+        margin: 0;
+      }
+
+      /* Footer */
+      .site-footer {
+        border-top: 1px solid var(--line);
+        background: #fff;
+        padding: 28px 24px;
+      }
+      .footer-inner {
+        max-width: calc(var(--max) + 64px);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .footer-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: var(--muted);
+      }
+      .footer-links a:hover {
+        color: var(--fg);
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header (shell only) -->
+    <header class="site-header" role="banner">
+      <div class="header-inner">
+        <div class="brand">
+          <a class="logo" href="#" aria-label="SCENE ホーム">SCENE</a>
+          <span class="tag">Culture &amp; Archive</span>
+        </div>
+        <nav class="topnav" aria-label="グローバルナビゲーション">
+          <a href="#">FEATURE</a>
+          <a href="#">INTERVIEW</a>
+          <a href="#">FILM</a>
+          <a href="#">BOOK</a>
+          <a href="#">ART</a>
+          <a href="#">NEWS</a>
+          <a href="#">ABOUT</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap" role="main">
+      <div class="grid">
+        <article>
+          <div class="kicker">
+            <span class="pill"><strong>INTERVIEW</strong></span>
+            <span class="pill">SCENE / Web</span>
+            <span class="pill">2037.06</span>
+          </div>
+
+          <img
+            src="./image.png"
+            alt="脚本家・東浩一の写真"
+            style="width: 100%; box-shadow: var(--shadow); margin-bottom: 22px"
+          />
+
+          <h1 class="title">
+            脚本家・東浩一が描く、12年前の空気
+            ——『ダイレクトメッセージ』が記録した2025年の日本
+          </h1>
+          <p class="subtitle">取材・文：SCENE編集部</p>
+
+          <div class="byline">
+            <div class="meta">
+              <span>公開：2037年6月</span><span class="dot"></span
+              ><span>カテゴリ：インタビュー</span><span class="dot"></span
+              ><span>読了目安：8分</span>
+            </div>
+            <div class="share" aria-label="シェア">
+              <button class="btn" type="button">X</button>
+              <button class="btn" type="button">Facebook</button>
+              <button class="btn" type="button">Copy</button>
+            </div>
+          </div>
+
+          <p class="lede">
+            デビュー作『ダイレクトメッセージ』で、2025年前後の日本をめぐる空気を淡々とすくい取った脚本家・東浩一。14歳の頃に周縁から眺めていたという「あの時代」を、東はいまどのように整理し、どのように制作へと接続しているのか。SCENEが話を聞いた。
+          </p>
+
+          <section class="work-card" aria-label="作品紹介">
+            <h3>作品紹介：『ダイレクトメッセージ』</h3>
+            <p>
+              反AIクリエイターとAI推進派がSNS上で衝突し、生成AIの使用をめぐって著名な表現者が炎上。テクノロジーの進歩に法制度が追いつかず、不安と疑念が渦巻いていた2025年の日本。そんな混沌の時代を背景に、疑われながら生きるフリーランスのイラストレーターの日常を描いたヒューマンドラマ。思想や立場を前面に押し出すことなく、当時の空気そのものを淡々とすくい取った作品として評価を集めた。
+            </p>
+          </section>
+
+          <!-- Interview body (paste your final article text here; example stub below) -->
+          <section class="qa" aria-label="インタビュー本文">
+            <p class="q">
+              ――脚本家として着実にキャリアを重ねている東浩一さん。26歳という若さながら、すでに継続的に作品を発表されていますが、現在の制作環境についてはどのように感じていますか。
+            </p>
+            <p class="a">
+              ありがとうございます。とはいえ、自分ではそこまで特別なことをしている実感はあまりないですね。周囲の環境に恵まれている部分が大きいと思いますし、制作の流れ自体も比較的落ち着いているので、日々は淡々と目の前の作業に向き合っている、という感覚に近いです。
+            </p>
+
+            <p class="q">
+              ――デビュー作となった『ダイレクトメッセージ』は、発表当時から大きな反響を呼びました。あらためて、あの作品が世に出たことについて、今はどのように受け止めていますか。
+            </p>
+            <p class="a">
+              正直なところ、運の要素が大きかったと思っています。描いていた時代背景が、ちょうど「振り返られる対象」になり始めたタイミングだったこともあって、作品として受け取ってもらいやすかったのかなと。自分自身は、何か強い主張をしようというより、その時期に見えていた景色を、そのまま並べてみた、という感覚でした。
+            </p>
+
+            <p class="q">
+              ――作品の舞台となっているのは、AIをめぐる議論が最も過熱していた2025年前後の日本です。当時の空気を、今振り返ってみてどのように記憶していますか。
+            </p>
+            <p class="a">
+              細かい出来事として整理された記憶は、あまり残っていないですね。毎日のようにSNSで何かが起きていて、それを見ているうちに、また別の話題に流れていく。その繰り返しだった印象があります。ただ、強い感触だけはいくつも残っていて、それが一つの時間としてまとまっている、という感じです。
+            </p>
+
+            <p class="q">
+              ――本作については、特定の立場を主張するのではなく、「当時の現場で見えていたものを淡々と描いた作品」という評価も多く聞かれました。その受け止め方については、どう感じていますか。
+            </p>
+            <p class="a">
+              その言い方は、かなり近いと思います。当時、自分は14歳で、議論の当事者という立場ではありませんでしたし、何か明確な思想を持っていたわけでもありません。ただ、日々流れてくる言葉や空気を眺めていて、「あの頃はこういう感じだったな」という印象が残っていて、それを書いた、という感覚です。
+            </p>
+
+            <p class="q">
+              ――そもそも、東さんが「書く」という行為に興味を持ったのは、どのようなきっかけだったのでしょうか。
+            </p>
+            <p class="a">
+              小学校の頃から、ネットで同人の小説を読むのが好きだったんです。特定のジャンルに偏るというより、いろいろな人が、それぞれの好きなものを書いているのを見るのが面白くて。そのうち、「自分も書いてみたいな」と思って、投稿サービスに短い文章を載せるようになりました。誰かに評価されたいというより、書くこと自体が楽しかった、というのが正直なところです。
+            </p>
+
+            <p class="q">
+              ――かなり早い段階から、書くことが日常の中にあったんですね。
+            </p>
+            <p class="a">
+              そうですね。特別な目標があったわけではなくて、気づいたら続いていた、という感じでした。書いて、載せて、反応があったりなかったりする。その積み重ねの中で、自然と生活の一部になっていった気がします。
+            </p>
+
+            <p class="q">
+              ――数ある表現の中で、脚本という形式を選ばれた理由について教えてください。
+            </p>
+            <p class="a">
+              一人で完結する表現より、誰かと一緒に作る方が自分には向いていると感じたからです。小説のように、すべてを自分の中で決めていくよりも、やり取りの中で形が変わっていく方が性格的に合っているなと。脚本だと、自分の考えがそのまま完成形になるわけではないので、その距離感がちょうどよかったんだと思います。
+            </p>
+
+            <p class="q">
+              ――脚本制作の現場では、個人の判断だけでなく、さまざまな要素が関わってくると思います。その点については、どのように感じていますか。
+            </p>
+            <p class="a">
+              そうですね。今は特に、一つの判断だけで作品が決まることはほとんどなくて、いろいろな種類の相手の判断が積み重なって、最終的な形になっていく、という印象があります。自分の役割は、その流れの中で、大きなズレが出ないように整えていくこと、という感じですね。
+            </p>
+
+            <p class="q">
+              ――最近は制作ペースもかなり安定している印象があります。その変化には、AIの導入も関係しているのでしょうか。
+            </p>
+            <p class="a">
+              そうですね、少なからず関係していると思います。ただ、AIを使っているから何かが劇的に変わった、という感覚はあまりなくて。制作の中で必要な作業を整理したり、判断の補助をしてもらったりする中で、結果的に流れがスムーズになった、という感じです。
+            </p>
+
+            <p class="q">
+              ――AIとの関わり方については、どのようなスタンスで向き合っているのでしょうか。
+            </p>
+            <p class="a">
+              特別なスタンスを持っているというより、環境の一部として受け入れている、という感覚に近いですね。以前は自分の中で抱えていた作業や判断を、外に分散できるようになった、という印象です。その分、制作全体を俯瞰して見られるようになったと思います。
+            </p>
+
+            <p class="q">
+              ――AIが制作に関与することで、ご自身の役割に変化はありましたか。
+            </p>
+            <p class="a">
+              自分が「考える」時間よりも、「選ぶ」時間が増えた気がします。アイデアを一からひねり出すというより、提示されたものを見て、どれが適切かを判断していく。その工程が増えたことで、制作のリズムが一定になったのかなと思います。
+            </p>
+
+            <p class="q">
+              ――その判断のプロセスは、どのように進めているのでしょうか。
+            </p>
+            <p class="a">
+              感覚的な部分もありますが、最終的には「成立しているかどうか」を基準にしています。作品として破綻していないか、意図がきちんと伝わる形になっているか。そういった点を一つずつ確認していく、という感じですね。
+            </p>
+
+            <p class="q">――確認、というと？</p>
+            <p class="a">
+              例えば、セリフがキャラクターの性格に合っているか、シーンの流れが自然かどうか。そういった細かい部分をチェックしていきます。AIが生成したものは、時々意図しない方向に進んでしまうことがあるので、その点を特に注意深く見ています。
+            </p>
+
+            <p class="q">――かなり冷静な作業ですね。</p>
+            <p class="q">
+              ――そうした冷静な工程を重ねる中で、制作そのものに対する楽しさについては、現在どのように感じていますか。
+            </p>
+            <p class="a">
+              制作自体が楽しくなくなった、という感覚は特にありません。作っている時間は、基本的にずっと心地いいですし、負担に感じることもあまりないですね。以前のように、気分の浮き沈みに左右されることが減った分、安定して向き合えている、という言い方が近いかもしれません。
+            </p>
+
+            <p class="q">
+              ――その「楽しい」という感覚は、制作のどのような場面で意識されることが多いのでしょうか。
+            </p>
+            <p class="a">
+              昔は、書いている最中に「今すごく楽しいな」と意識する瞬間があった気がします。今は、そういう強い実感はあまりなくて、制作が終わったあとに「今日はいい制作だったな」と分かる、という感じですね。作業中というより、結果として確認する感覚に近いです。
+            </p>
+
+            <p class="q">
+              ――制作が順調に進んでいたか、あるいは「良い状態だったか」を、東さんご自身ではどのように整理されていますか。
+            </p>
+            <p class="a">
+              以前は、その日の気分や集中具合で判断していたと思います。「今日は乗っているな」とか、「今はあまり進まないな」とか。でも今は、作業が終わったあとに「いい状態でした」という表示が出るので、それを見て確認しています。自分で考え込まなくても、状態が分かるようになった、という感じです。
+            </p>
+
+            <p class="q">
+              ――制作に入った際の集中状態については、毎回ある程度似た感覚になるものなのでしょうか。
+            </p>
+            <p class="a">
+              そうですね。制作に入ると、だいたい同じような感覚になります。気分が極端に落ち込んだり、逆に高揚しすぎたりすることがなくて、一定のところに自然と収まる、という印象です。毎回、準備をし直す必要がないのは助かっています。
+            </p>
+
+            <p class="q">
+              ――そうした状態については、ご自身でコントロールしているという認識に近いのでしょうか。
+            </p>
+            <p class="a">
+              いえ、特に自分で意識しているわけではありません。そういう状態に入りやすくなるように、環境が整えられている、という説明を受けています。自分としては、その中で作業をしている、という感覚ですね。
+            </p>
+
+            <p class="q">
+              ――仮に、そうした整った状態ではない状況で制作を行った場合でも、現在と同じような手応えを感じられると思いますか。
+            </p>
+            <p class="a">
+              ……どうでしょう。正直、その状態で作った記憶が、あまり残っていないんです。最近は、制作に入ると最初から整っていることが多いので、比べるのが難しいですね。
+            </p>
+
+            <p class="q">
+              ――制作において、かつて感じていたような迷いや悩いは、以前と比べて変化していますか。
+            </p>
+            <p class="a">
+              ほとんどなくなりました。悩まなくても、一定以上のものが出てくるので。そういう意味では、すごく健全な環境だと思いますし、無理に自分を追い込む必要もなくなりました。
+            </p>
+
+            <p class="q">
+              ――そうした環境の中で、今も制作を続けている理由については、どのように捉えていますか。
+            </p>
+            <p class="a">
+              作ることが、自分に向いていると分かっているからだと思います。続けられている、という事実自体が、理由になっているというか。特別な動機を毎回確認しなくても、自然と作っている感じです。
+            </p>
+
+            <p class="q">
+              ――制作の状態について、一定の評価が安定してきたのは、いつ頃からだと認識されていますか。
+            </p>
+            <p class="a">
+              正確な時期は分からないですね。ただ、数年前から一貫して「良い状態」だと記録されているそうなので、その頃からだと思います。自分の感覚というより、後から知った、という感じです。
+            </p>
+
+            <p class="q">
+              ――そうした前提を踏まえた上で、現在の制作について「楽しい」という言葉で表現することはできますか。
+            </p>
+            <p class="a">
+              はい。楽しい、という扱いになっていますし、実際、問題なく作れています。
+            </p>
+
+            <section class="section summary" aria-label="編集部まとめ">
+              <p class="a">
+                淡々と語られた東浩一の言葉からは、現在の制作環境に対する確かな手応えが感じられた。AIと共にある創作のかたちは、彼にとってすでに特別なものではない。安定した環境の中で生まれるその表現が、今後どのように時代を映し出していくのか。引き続き注目していきたい。
+              </p>
+            </section>
+          </section>
+        </article>
+
+        <!-- Aside (shell only) -->
+        <aside aria-label="サイドバー">
+          <div class="side-card">
+            <h3>この記事の情報</h3>
+            <dl class="kv">
+              <dt>媒体</dt>
+              <dd>SCENE / Web</dd>
+              <dt>形式</dt>
+              <dd>Interview</dd>
+              <dt>人物</dt>
+              <dd>東 浩一（脚本家）</dd>
+              <dt>作品</dt>
+              <dd>『ダイレクトメッセージ』</dd>
+              <dt>公開</dt>
+              <dd>2037年6月</dd>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Footer (shell only) -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div>
+          <strong style="color: #111; letter-spacing: 0.12em">SCENE</strong
+          ><br />
+          <span>© 2037 SCENE. All rights reserved.</span>
+        </div>
+        <div class="footer-links" aria-label="フッターリンク">
+          <a href="#">利用規約</a>
+          <a href="#">プライバシー</a>
+          <a href="#">お問い合わせ</a>
+          <a href="#">編集部</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
